@@ -177,9 +177,9 @@ If you want to use the module generator in an existing project, follow these ste
 
 Once you have completed the steps to integrate the module generator into your existing Laravel project, you can use the following command to generate modules:
 
-    ```bash
-    php artisan app:module {namespace}
-    ```
+```bash
+php artisan app:module {namespace}
+```
     
 ### 3. Roadmap
 ## Module Generator for Laravel
