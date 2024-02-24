@@ -1,0 +1,22 @@
+<?php
+
+namespace <<moduleNameSpace>>\Infrastructure;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use App\API\Common\Traits\CreatedByRelationshipTrait;
+use App\API\Common\Traits\ScopeActiveTrait;
+use App\API\Common\Traits\UpdatedByRelationshipTrait;
+
+class <<ModuleName>> extends Model
+{
+    use HasFactory;
+    use ScopeActiveTrait;
+    use CreatedByRelationshipTrait;
+    use UpdatedByRelationshipTrait;
+
+    protected $table = '<<module_names>>';
+    protected $primaryKey = '<<module_name>>_id';
+    protected $guarded = [];
+}
+

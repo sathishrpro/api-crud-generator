@@ -1,0 +1,110 @@
+<?php
+namespace <<moduleNameSpace>>\Services;
+
+use \Exception;
+use Illuminate\Support\ItemNotFoundException;
+use Illuminate\Validation\ValidationException;
+use <<moduleNameSpace>>\Contracts\<<ModuleName>>RepositoryInterface;
+use <<moduleNameSpace>>\Contracts\<<ModuleName>>ServiceInterface;
+use <<moduleNameSpace>>\Domain\CreateValidator;
+use <<moduleNameSpace>>\Domain\UpdateValidator;
+
+
+class <<ModuleName>>Service implements <<ModuleName>>ServiceInterface
+{
+    private $<<moduleName>>Repository;
+
+
+    public function __construct(<<ModuleName>>RepositoryInterface $<<moduleName>>Repository)  {
+        $this-><<moduleName>>Repository = $<<moduleName>>Repository;
+    }
+
+    public function create(array $attributes)
+    {
+        try {
+            CreateValidator::validate($attributes);
+            return $this-><<moduleName>>Repository->create($attributes);
+        } catch (ValidationException $ve) {
+            throw $ve;
+        } catch (\Throwable $e) {
+           throw $e;
+        }
+    }
+
+    public function update($id,array $attributes)
+    {
+        try {
+            $<<moduleName>> = $this-><<moduleName>>Repository->find($id);
+            UpdateValidator::validate($<<moduleName>>, $attributes);
+            return $this-><<moduleName>>Repository->update($<<moduleName>>, $attributes);
+        }
+        catch(ItemNotFoundException $infe)  {
+            throw $infe;
+        }
+        catch (ValidationException $ve) {
+            throw $ve;
+        }
+        catch (\Throwable $e) {
+           throw $e;
+        }
+    }
+
+    public function find($id)
+    {
+        try {
+           return $this-><<moduleName>>Repository->find($id);
+        }
+        catch(ItemNotFoundException $infe)  {
+            throw $infe;
+        }
+        catch (ValidationException $ve) {
+            throw $ve;
+        } 
+        catch (\Throwable $e) {
+           throw $e;
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+           return $this-><<moduleName>>Repository->delete($id);
+        }
+        catch(ItemNotFoundException $infe)  {
+            throw $infe;
+        }
+        catch (\Throwable $e) {
+           throw $e;
+        }
+    }
+
+    public function all()
+    {
+        try {
+           return $this-><<moduleName>>Repository->all();
+        }
+        catch (\Throwable $e) {
+           throw $e;
+        }
+    }
+
+    public function paginate($page, $itemPerPage)
+    {
+        try {
+           return $this-><<moduleName>>Repository->paginate($page, $itemPerPage);
+        }
+        catch (\Throwable $e) {
+           throw $e;
+        }
+    }
+
+    public function filter($column, $value)
+    {
+        try {
+           return $this-><<moduleName>>Repository->filter($column, $value);
+        }
+        catch (\Throwable $e) {
+           throw $e;
+        }
+    }
+}

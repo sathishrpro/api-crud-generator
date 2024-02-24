@@ -1,0 +1,57 @@
+<?php
+namespace <<moduleNameSpace>>\Repositories;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
+use <<moduleNameSpace>>\Infrastructure\<<ModuleName>>;
+use <<moduleNameSpace>>\Contracts\<<ModuleName>>RepositoryInterface;
+
+class <<ModuleName>>Repository implements <<ModuleName>>RepositoryInterface
+{
+    public function create(array $attributes)
+    {
+        return <<ModuleName>>::create($attributes);
+    }
+
+    public function update(Model $<<moduleName>>, array $attributes)
+    {
+        $<<moduleName>>->update($attributes);
+        return $product->fresh(); //refresh() also could be used
+    }
+
+    public function find($id)
+    {
+        return <<ModuleName>>::findOrFail($id);
+    }
+
+    public function delete($id)
+    {
+        return <<ModuleName>>::findOrFail($id)->delete();
+    }
+
+    public function all()
+    {
+        return <<ModuleName>>::all();
+    }
+
+    public function paginate($page = 1, $limit = 10)
+    {
+        $page =  (empty($page) || $page < 1) ? 1 : $page;
+        $limit = (empty($limit) || $limit > 100) ? 10 : $limit;
+        return <<ModuleName>>::limit($limit)->offset(($page - 1) * $limit)->get();
+    }
+
+    public function filter($column, $value, Collection $eloquentCollection = null, $operator = "=")
+    {
+        if ($eloquentCollection) {
+            if (is_array($value)) {
+                return $eloquentCollection->whereIn($column, $value)->all();
+            }
+            return $eloquentCollection->where($column, $operator, $value)->all();
+        }
+        if (is_array($value)) {
+            return <<ModuleName>>::whereIn($column, $value)->get();
+        } 
+        return <<ModuleName>>::where($column, $operator, $value)->get();
+    }
+}

@@ -1,0 +1,18 @@
+<?php
+
+namespace <<moduleNameSpace>>\Config;
+
+use Illuminate\Support\ServiceProvider;
+use <<moduleNameSpace>>\Contracts\<<ModuleName>>RepositoryInterface;
+use <<moduleNameSpace>>\Contracts\<<ModuleName>>ServiceInterface;
+use <<moduleNameSpace>>\Repositories\<<ModuleName>>Repository;
+use <<moduleNameSpace>>\Services\<<ModuleName>>Service;
+
+class <<ModuleName>>ServiceProvider extends ServiceProvider
+{
+    public function register()
+    {
+        $this->app->bind(<<ModuleName>>RepositoryInterface::class, <<ModuleName>>Repository::class);
+        $this->app->bind(<<ModuleName>>ServiceInterface::class, <<ModuleName>>Service::class);
+    }
+}

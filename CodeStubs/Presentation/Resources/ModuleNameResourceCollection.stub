@@ -1,0 +1,30 @@
+<?php
+ 
+namespace <<moduleNameSpace>>\Presentation\Resources;
+ 
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\ResourceCollection;
+use <<moduleNameSpace>>\Infrastructure\<<ModuleName>>;
+use <<moduleNameSpace>>\Presentation\Resources\<<ModuleName>>Resource;
+use App\Helpers\PaginationHelper;
+ 
+class <<ModuleName>>ResourceCollection extends ResourceCollection
+{
+    /**
+     * Transform the resource collection into an array.
+     *
+     * @return array<int|string, mixed>
+     */
+    public function toArray(Request $request): array
+    {
+        if($request->has('page')) {
+            return PaginationHelper::paginate($this->collection, $request->items_per_page, "<<modulenames>>");
+        }
+        return [
+            '<<modulenames>>' => $this->collection,
+            'meta' => [
+                'total_records' => $this->collection->count(),
+            ],
+        ];
+    }
+}
