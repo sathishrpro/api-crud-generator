@@ -161,11 +161,14 @@ Once you have completed these steps, your generated module's routes should be in
 
 ### Using the Module Generator in an Existing Project
 
+
 If you want to use the module generator in an existing project, follow these steps:
 
 1. Copy the `CodeStubs` folder to the root directory of your project.
-2. Copy the `ModuleGenerator.php` file to the `app/Console/Commands` directory of your Laravel project.
-3. You may need to register the `ModuleGenerator` command in your Laravel application. If it's not already registered, add it to the `$commands` array in the `app/Console/Kernel.php` file:
+2. Copy the `app/Console/Commands/ModuleGenerator.php` file to the `app/Console/Commands` directory of your Laravel project.
+3. Copy the `app/Helpers/PaginationHelper.php` file to the `app/Helpers` directory of your Laravel project.
+4. Copy the `app/API/Common` folder contents to the `app/API/Common` directory of your Laravel project.
+5. You may need to register the `ModuleGenerator` command in your Laravel application. If it's not already registered, add it to the `$commands` array in the `app/Console/Kernel.php` file:
 
    ```php
    protected $commands = [
