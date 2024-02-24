@@ -39,7 +39,7 @@ By adhering to this architectural pattern, the CRUD Module API Generator promote
 
 ## Usage
 
-To use the CRUD Module API API Generator command, follow these steps:
+To use the CRUD Module API Generator command, follow these steps:
 
 1. Open your terminal.
 2. Navigate to your Laravel project directory.
@@ -163,7 +163,7 @@ Once you have completed these steps, your generated module's routes should be in
 
 If you want to use the module generator in an existing project, follow these steps:
 
-1. Copy the `CodeStubbs` folder to the root directory of your project.
+1. Copy the `CodeStubs` folder to the root directory of your project.
 2. Copy the `ModuleGenerator.php` file to the `app/Console/Commands` directory of your Laravel project.
 3. You may need to register the `ModuleGenerator` command in your Laravel application. If it's not already registered, add it to the `$commands` array in the `app/Console/Kernel.php` file:
 
