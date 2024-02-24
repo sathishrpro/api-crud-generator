@@ -136,42 +136,6 @@ Replace `YourGeneratedModule` with the actual namespace of your generated module
 
 ### 2. Defining Routes
 
-Open the `RouteServiceProvider` located at `app/Providers/RouteServiceProvider.php`.
-
-Certainly! Here's the updated section for the README file with a more generic explanation:
-
----
-
-## Integration with Laravel
-
-To integrate the generated module with your Laravel application, follow these steps:
-
-### 1. Adding Service Provider
-
-Open the `config/app.php` file in your Laravel project and locate the `providers` array. Add the generated module's service provider to this array. The service provider class should be located in the `Config` directory of the generated module.
-
-```php
-/*
-|--------------------------------------------------------------------------
-| Autoloaded Service Providers
-|--------------------------------------------------------------------------
-|
-| The service providers listed here will be automatically loaded on the
-| request to your application. Feel free to add your own services to
-| this array to grant expanded functionality to your applications.
-|
-*/
-
-return [
-    // Other service providers...
-    App\YourGeneratedModule\Config\YourModuleServiceProvider::class,
-];
-```
-
-Replace `YourGeneratedModule` with the actual namespace of your generated module and `YourModuleServiceProvider` with the name of the generated service provider class.
-
-### 2. Defining Routes
-
 Open the `RouteServiceProvider` located at `app/Providers/RouteServiceProvider.php`. In the `boot()` method, add the route definition for your generated module.
 
 ```php
